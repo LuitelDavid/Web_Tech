@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display : flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;  
+            margin: 0;
+            background-color: rgb(3, 3, 3);
+        }
+        .calculator {
+            width: 240px;
+            border-radius: 20px;
+            padding: 20px;
+            background-color: rgb(163, 199, 206);
+            margin-top: 20px;
+        } 
+        #display {
+            width: 94%;
+            height: 80px;
+            background: white;
+            font-size: 40px;
+            text-align: right;
+            padding-right: 10px;
+            margin-bottom: 15px
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        button {
+            height: 55px;
+            border-radius: 20px;
+            font-size: 20px;
+            background: #1c1c1c;
+            color: white;
+        }
+        button:hover {
+            background: #00bcd4;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            border-radius: 0 0 20px 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            color: #00bcd4;
+        }
+        .zero-button {
+            grid-column: span 2;
+            padding-left: 10px;
+        }
+        .equal-button {
+            grid-column: 4;
+            grid-row: 5;
+            height: 100%;
+        }
+        .clear-button {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../lab_exp1/index.html">Exp_1</a>
+            <a href="../lab_exp2/index.html">Exp_2</a>
+            <a href="../lab_exp3/index.html">Exp_3</a>
+            <a href="../lab_exp4/index.html">Exp_4</a>
+            <a href="../lab_exp5/index.html">Exp_5</a>
+        </nav>
+    </header>
+    <div class = "calculator">
+        <input type="text" id="display" disabled>
+
+        <div class="buttons">
+            <button class="clear-button" onclick="clearDisplay()">C</button>
+            <button onclick="backspace()">⌫</button>
+            <button onclick="setop('/')">/</button>
+
+            <button onclick="setnum(7)">7</button>
+            <button onclick="setnum(8)">8</button>
+            <button onclick="setnum(9)">9</button>
+            <button onclick="setop('*')">*</button>
+
+            <button onclick="setnum(4)">4</button>
+            <button onclick="setnum(5)">5</button>
+            <button onclick="setnum(6)">6</button>
+            <button onclick="setop('-')">-</button>
+
+
+            <button onclick="setnum(1)">1</button>
+            <button onclick="setnum(2)">2</button>
+            <button onclick="setnum(3)">3</button>
+            <button onclick="setop('+')">+</button>
+
+            <button class="equal-button" onclick="calculate()">=</button>
+
+            <button class="zero-button" onclick="setnum(0)">0</button>
+            <button onclick="adddot()">.</button>
+
+        </div>
+    </div>
+    <script>
+        let num1 = "";
+        let num2 = "";
+        let operator = "";
+        function setnum(n) {
+            if (operator === "") {
+                num1 += n;
+                display.value = num1;
+            } else {
+                num2 += n;
+                display.value = num2;
+            }
+        }
+        function setop(op) {
+            operator = op;
+        }
+        function adddot() {
+            if (operator === "") {
+                if ( !num1.includes(".")) {
+                    num1 += ".";
+                    display.value = num1;
+                }
+            } else {
+                if ( !num2.includes(".")) {
+                    num2 += ".";
+                    display.value = num2;
+                }
+            }
+        }
+        function calculate() {
+            let result = 0;
+            switch(operator) {
+                case "+":
+                    result = parseFloat(num1) + parseFloat(num2);
+                    break;
+                case "-":
+                    result = parseFloat(num1) - parseFloat(num2);
+                    break;
+                case "*":
+                    result = parseFloat(num1) * parseFloat(num2);
+                    break;
+                case "/":
+                    result = parseFloat(num1) / parseFloat(num2);
+                    break;
+            }
+            display.value = result;
+            num1 = result;
+            num2 = "";
+            operator = "";
+        }
+        function backspace() {
+            if (operator === "") {
+                num1 = num1.toString().slice(0, -1);
+                display.value = num1;
+            } else {
+                num2 = num2.toString().slice(0, -1);
+                display.value = num2;
+            }
+        }
+        function clearDisplay() {
+            display.value = "";
+            num1 = "";
+            num2 = "";
+            operator = "";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>    
+        function calculate(num1, num2) {
+            return num1 + num2;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Calculator</h1>
+    </header>
+    
+        
+            <input type="number" name="num1" placeholder="First Number" required>
+            <input type="number" name="num2" placeholder="Second Number" required>
+            <select name="operation">
+                <option value="add" id="doadd">Add</option>
+                <option value="subtract">Subtract</option>
+                <option value="multiply">Multiply</option>
+                <option value="divide">Divide</option>
+            </select>
+            <button type="button" onclick="calculate()">Calculate</button>
+        
+
+</body>
+</html>

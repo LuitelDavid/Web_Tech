@@ -15,20 +15,20 @@
             background-color: rgb(3, 3, 3);
         }
         .calculator {
-            width: 240px;
+            width: 400px;
             border-radius: 20px;
-            padding: 20px;
+            padding: 25px;
             background-color: rgb(163, 199, 206);
             margin-top: 20px;
         } 
         #display {
             width: 94%;
-            height: 80px;
+            height: 100px;
             background: white;
-            font-size: 40px;
+            font-size: 48px;
             text-align: right;
-            padding-right: 10px;
-            margin-bottom: 15px
+            padding-right: 14px;
+            margin-bottom: 18px
         }
         .buttons {
             display: grid;
@@ -36,9 +36,9 @@
             gap: 10px;
         }
         button {
-            height: 55px;
+            height: 75px;
             border-radius: 20px;
-            font-size: 20px;
+            font-size: 26px;
             background: #1c1c1c;
             color: white;
         }
@@ -167,7 +167,7 @@
             num2 = "";
             operator = "";
         }
-        function backspace() {
+       function backspace() {
             if (operator === "") {
                 num1 = num1.toString().slice(0, -1);
                 display.value = num1;

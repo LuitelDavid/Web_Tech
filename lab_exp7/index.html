@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Students & Products</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#eef2f7;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.section{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    width:700px;
+    text-align:center;
+}
+
+.controls{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+input,select{
+    padding:8px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    padding:8px 14px;
+    border:none;
+    border-radius:5px;
+    background:#0077ff;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#005ed6;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#0077ff;
+    color:white;
+}
+
+th,td{
+    padding:10px;
+    border:1px solid #ddd;
+}
+
+tr:nth-child(even){
+    background:#f5f7fb;
+}
+
+.hidden{
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+<div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%);">
+    <a href="../index.html" style="padding: 8px 14px; background: #0077ff; color: white; text-decoration: none; border-radius: 5px; cursor: pointer;">← Back to Home</a>
+</div>
+
+<!-- STUDENT SECTION -->
+
+<div id="studentSection" class="section">
+
+<h2>Students</h2>
+
+<div class="controls">
+
+<input type="text" id="searchStudent" placeholder="Search student">
+
+<select id="deptFilter" onchange="filterDept()">
+<option value="all">All Departments</option>
+<option value="CSE">CSE</option>
+<option value="ECE">ECE</option>
+<option value="ME">ME</option>
+</select>
+
+<button onclick="capitalizeStudents()">Capitalize</button>
+<button onclick="lowerStudents()">Lower</button>
+<button onclick="showTopper()">Topper</button>
+<button onclick="showProducts()">Products →</button>
+
+</div>
+
+<table id="studentTable">
+
+<tr>
+<th>Name</th>
+<th>Department</th>
+<th>Score</th>
+</tr>
+
+<tr><td>ram</td><td>CSE</td><td>82</td></tr>
+<tr><td>sita</td><td>CSE</td><td>91</td></tr>
+<tr><td>hari</td><td>ECE</td><td>76</td></tr>
+<tr><td>rita</td><td>ECE</td><td>88</td></tr>
+<tr><td>gita</td><td>ME</td><td>69</td></tr>
+<tr><td>mohan</td><td>ME</td><td>95</td></tr>
+<tr><td>arjun</td><td>CSE</td><td>73</td></tr>
+<tr><td>kiran</td><td>ECE</td><td>84</td></tr>
+<tr><td>laxmi</td><td>ME</td><td>78</td></tr>
+<tr><td>rohan</td><td>CSE</td><td>89</td></tr>
+
+</table>
+
+</div>
+
+
+
+<!-- PRODUCT SECTION -->
+
+<div id="productSection" class="section hidden">
+
+<h2>Products</h2>
+
+<div class="controls">
+
+<input type="text" id="searchProduct" placeholder="Search product">
+
+<select id="catFilter" onchange="filterCategory()">
+<option value="all">All Categories</option>
+<option value="electronics">electronics</option>
+<option value="furniture">furniture</option>
+<option value="stationery">stationery</option>
+</select>
+
+<button onclick="capitalizeProducts()">Capitalize</button>
+<button onclick="lowerProducts()">Lower</button>
+<button onclick="showStudents()">← Students</button>
+
+</div>
+
+<table id="productTable">
+
+<tr>
+<th>Name</th>
+<th>Category</th>
+<th>Subcategory</th>
+<th>Price</th>
+</tr>
+
+<tr><td>laptop</td><td>electronics</td><td>computer</td><td>700</td></tr>
+<tr><td>phone</td><td>electronics</td><td>mobile</td><td>500</td></tr>
+<tr><td>mouse</td><td>electronics</td><td>accessory</td><td>20</td></tr>
+<tr><td>chair</td><td>furniture</td><td>office</td><td>80</td></tr>
+<tr><td>table</td><td>furniture</td><td>wood</td><td>150</td></tr>
+<tr><td>pen</td><td>stationery</td><td>writing</td><td>2</td></tr>
+<tr><td>notebook</td><td>stationery</td><td>paper</td><td>5</td></tr>
+<tr><td>lamp</td><td>electronics</td><td>light</td><td>40</td></tr>
+<tr><td>sofa</td><td>furniture</td><td>living</td><td>400</td></tr>
+<tr><td>keyboard</td><td>electronics</td><td>computer</td><td>60</td></tr>
+
+</table>
+
+</div>
+
+
+
+<script>
+
+/* STUDENT SEARCH */
+
+document.getElementById("searchStudent").addEventListener("keyup",function(){
+
+let input=this.value.toLowerCase()
+let rows=document.querySelectorAll("#studentTable tr")
+
+for(let i=1;i<rows.length;i++){
+
+let name=rows[i].cells[0].innerText.toLowerCase()
+
+rows[i].style.display=name.includes(input)?"":"none"
+
+}
+
+})
+
+
+/* CAPITALIZE */
+
+function capitalizeStudents(){
+
+let rows=document.querySelectorAll("#studentTable tr")
+
+for(let i=1;i<rows.length;i++){
+rows[i].cells[0].innerText=rows[i].cells[0].innerText.toUpperCase()
+}
+
+}
+
+
+/* LOWER */
+
+function lowerStudents(){
+
+let rows=document.querySelectorAll("#studentTable tr")
+
+for(let i=1;i<rows.length;i++){
+rows[i].cells[0].innerText=rows[i].cells[0].innerText.toLowerCase()
+}
+
+}
+
+
+/* TOPPER */
+
+function showTopper(){
+
+let rows=document.querySelectorAll("#studentTable tr")
+let top={}
+
+for(let i=1;i<rows.length;i++){
+
+let dept=rows[i].cells[1].innerText
+let score=parseInt(rows[i].cells[2].innerText)
+
+if(!top[dept]||score>top[dept].score){
+top[dept]={score:score,row:rows[i]}
+}
+
+rows[i].style.background=""
+
+}
+
+for(let d in top){
+top[d].row.style.background="yellow"
+}
+
+}
+
+
+/* DROPDOWN FILTER */
+
+function filterDept(){
+
+let dept=document.getElementById("deptFilter").value
+let rows=document.querySelectorAll("#studentTable tr")
+
+for(let i=1;i<rows.length;i++){
+
+let d=rows[i].cells[1].innerText
+
+if(dept=="all" || d==dept)
+rows[i].style.display=""
+else
+rows[i].style.display="none"
+
+}
+
+}
+
+
+/* PAGE SWITCH */
+
+function showProducts(){
+
+document.getElementById("studentSection").classList.add("hidden")
+document.getElementById("productSection").classList.remove("hidden")
+
+}
+
+function showStudents(){
+
+document.getElementById("productSection").classList.add("hidden")
+document.getElementById("studentSection").classList.remove("hidden")
+
+}
+
+
+/* PRODUCT SEARCH */
+
+document.getElementById("searchProduct").addEventListener("keyup",function(){
+
+let input=this.value.toLowerCase()
+let rows=document.querySelectorAll("#productTable tr")
+
+for(let i=1;i<rows.length;i++){
+
+let name=rows[i].cells[0].innerText.toLowerCase()
+
+rows[i].style.display=name.includes(input)?"":"none"
+
+}
+
+})
+
+
+/* PRODUCT CAPITALIZE */
+
+function capitalizeProducts(){
+
+let rows=document.querySelectorAll("#productTable tr")
+
+for(let i=1;i<rows.length;i++){
+rows[i].cells[0].innerText=rows[i].cells[0].innerText.toUpperCase()
+}
+
+}
+
+
+/* PRODUCT LOWER */
+
+function lowerProducts(){
+
+let rows=document.querySelectorAll("#productTable tr")
+
+for(let i=1;i<rows.length;i++){
+rows[i].cells[0].innerText=rows[i].cells[0].innerText.toLowerCase()
+}
+
+}
+
+
+/* CATEGORY FILTER */
+
+function filterCategory(){
+
+let cat=document.getElementById("catFilter").value
+let rows=document.querySelectorAll("#productTable tr")
+
+for(let i=1;i<rows.length;i++){
+
+let c=rows[i].cells[1].innerText
+
+if(cat=="all" || c==cat)
+rows[i].style.display=""
+else
+rows[i].style.display="none"
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

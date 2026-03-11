@@ -1,50 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Tech Lab</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            margin-bottom: 30px;
-            color: #2c3e50;
-        }
-        .buttons {
-            display: flex;
-            gap: 15px;
-        }
-        a button {
-            padding: 12px 30px;
-            font-size: 16px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        a button:hover {
-            background-color: #00bcd4;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Web Tech Lab</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+}
+
+/* main card */
+
+.container{
+
+    background:white;
+    padding:40px 50px;
+
+    border-radius:12px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+    text-align:center;
+
+    width:700px;
+
+}
+
+/* title */
+
+h1{
+
+    margin-bottom:35px;
+
+    color:#2c3e50;
+
+    letter-spacing:1px;
+
+}
+
+/* grid */
+
+.buttons{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+
+    gap:18px;
+
+}
+
+/* remove link style */
+
+.buttons a{
+    text-decoration:none;
+}
+
+/* buttons */
+
+.buttons button{
+
+    width:100%;
+
+    padding:14px;
+
+    font-size:16px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:linear-gradient(135deg,#ff7a18,#ffb347);
+
+    transition:all 0.25s ease;
+
+}
+
+/* hover */
+
+.buttons button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 8px 18px rgba(0,0,0,0.2);
+
+    background:linear-gradient(135deg,#ff512f,#dd2476);
+
+}
+
+</style>
 </head>
+
 <body>
-    <h1>Web Tech Lab Experiments</h1>
-    <div class="buttons">
-        <a href="lab_exp1/index.html"><button>Exp 1</button></a>
-        <a href="lab_exp2/index.html"><button>Exp 2</button></a>
-        <a href="lab_exp3/index.html"><button>Exp 3</button></a>
-        <a href="lab_exp4/index.html"><button>Exp 4</button></a>
-        <a href="lab_exp5/index.html"><button>Exp 5</button></a>
-    </div>
+
+<div class="container">
+
+<h1>Web Technology Lab Experiments</h1>
+
+<div class="buttons">
+
+<a href="lab_exp1/index.html"><button>Experiment 1</button></a>
+<a href="lab_exp2/index.html"><button>Experiment 2</button></a>
+<a href="lab_exp3/index.html"><button>Experiment 3</button></a>
+<a href="lab_exp4/index.html"><button>Experiment 4</button></a>
+<a href="lab_exp5/index.html"><button>Experiment 5</button></a>
+<a href="lab_exp6/index.html"><button>Experiment 6</button></a>
+<a href="lab_exp7/index.html"><button>Experiment 7</button></a>
+
+</div>
+
+</div>
+
 </body>
 </html>

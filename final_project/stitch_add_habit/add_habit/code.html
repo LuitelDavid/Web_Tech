@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create a New Habit | The Disciplined Canvas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#004ac6",
+                        "surface-container": "#eceef0",
+                        "on-background": "#191c1e",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary-container": "#eeefff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#c4c7c9",
+                        "on-secondary-fixed-variant": "#444749",
+                        "on-secondary-container": "#626567",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-tertiary-container": "#bdffdb",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "outline": "#737686",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed": "#e0e3e5",
+                        "outline-variant": "#c3c6d7",
+                        "on-surface": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-fixed": "#00174b",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-primary": "#b4c5ff",
+                        "tertiary-container": "#007d55",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#0053db",
+                        "surface-variant": "#e0e3e5",
+                        "primary-container": "#2563eb",
+                        "on-tertiary-fixed": "#002113",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "secondary": "#5c5f61",
+                        "on-surface-variant": "#434655",
+                        "secondary-container": "#e0e3e5",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "tertiary": "#006242",
+                        "tertiary-fixed": "#6ffbbe"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* The No-Line Rule: Hidden boundaries */
+        .ghost-border {
+            border: 1px solid rgba(195, 198, 215, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-[#f7f9fb] dark:bg-slate-950">
+<div class="flex items-center justify-between px-10 py-4 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#004ac6] dark:text-[#2563eb]">menu</span>
+<span class="text-xl font-bold tracking-tighter text-[#191c1e] dark:text-slate-100">The Disciplined Canvas</span>
+</div>
+<nav class="hidden md:flex items-center gap-6 font-inter text-sm tracking-tight">
+<a class="text-[#434655] dark:text-slate-400 hover:text-[#191c1e] hover:bg-[#e6e8ea] px-3 py-1 rounded transition-colors duration-200" href="#">Home</a>
+<a class="text-[#434655] dark:text-slate-400 hover:text-[#191c1e] hover:bg-[#e6e8ea] px-3 py-1 rounded transition-colors duration-200" href="#">About</a>
+<a class="text-[#004ac6] dark:text-[#2563eb] font-semibold border-b-2 border-[#004ac6] px-3 py-1" href="#">Dashboard</a>
+<a class="text-[#434655] dark:text-slate-400 hover:text-[#191c1e] hover:bg-[#e6e8ea] px-3 py-1 rounded transition-colors duration-200" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#434655] hover:bg-[#e6e8ea] p-2 rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined">search</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a user with a soft clean background for an account profile icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbqwff-q9JHwbEj2Rgn8ql8wYr98nxsTEpWYRQV-YDn7mczkV4_R650ItAbVaDWX8c3pX3vLGGNwNNh372ahvzyWbOPaTPAxL63BGA-7ipokwcCWI2MB4D7lvGpolGbTWTZpGDqiGfbDqqIhZcCTSyOgLaKRlk9x3eP9VgcCPtVXS4j3mDluKgR9O0403m8IL6W71o3NIL6tya-apQicW7fM1h5LAnmaJQSOvSVaG8TmDmPb_tgG1oDkQWsHuevogSZDcbT1NNRZgp"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-center justify-center p-6 md:p-10 bg-surface-container-low">
+<!-- Editorial Form Layout -->
+<div class="w-full max-w-2xl bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-sm">
+<header class="mb-10 text-center md:text-left">
+<p class="text-[0.75rem] font-bold uppercase tracking-[0.05em] text-primary mb-2">New Entry</p>
+<h1 class="text-3xl md:text-4xl font-bold tracking-tighter text-on-surface">Create a New Habit</h1>
+<p class="text-on-surface-variant text-sm mt-3 max-w-md">Define your next milestone. Small, consistent actions are the building blocks of professional discipline.</p>
+</header>
+<form class="space-y-8">
+<!-- Field: Habit Name -->
+<div class="space-y-2">
+<label class="block text-[0.75rem] font-bold uppercase tracking-[0.05em] text-on-surface-variant">Habit Name</label>
+<input class="w-full px-0 py-3 bg-transparent border-0 border-b-2 border-surface-container-highest focus:border-primary focus:ring-0 text-on-surface placeholder:text-outline-variant font-medium transition-colors" placeholder="e.g. Morning Focus Session" type="text"/>
+</div>
+<!-- Field: Description -->
+<div class="space-y-2">
+<label class="block text-[0.75rem] font-bold uppercase tracking-[0.05em] text-on-surface-variant">Description</label>
+<textarea class="w-full px-4 py-3 bg-surface-container-highest border-0 rounded-lg focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline-variant text-sm transition-all" placeholder="Describe the context or why this habit matters to you..." rows="3"></textarea>
+</div>
+<!-- Field: Goal -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
+<div class="space-y-2">
+<label class="block text-[0.75rem] font-bold uppercase tracking-[0.05em] text-on-surface-variant">Goal (Consecutive Days)</label>
+<div class="flex items-center gap-4">
+<input class="w-24 px-4 py-3 bg-surface-container-highest border-0 rounded-lg focus:ring-2 focus:ring-primary text-on-surface font-headline font-bold text-lg" type="number" value="21"/>
+<span class="text-on-surface-variant text-sm font-medium">Days</span>
+</div>
+</div>
+<!-- Frequency Mockup -->
+<div class="space-y-2">
+<label class="block text-[0.75rem] font-bold uppercase tracking-[0.05em] text-on-surface-variant">Frequency</label>
+<div class="flex gap-1">
+<button class="w-8 h-8 rounded-sm bg-tertiary flex items-center justify-center text-[10px] text-on-tertiary font-bold" type="button">M</button>
+<button class="w-8 h-8 rounded-sm bg-tertiary flex items-center justify-center text-[10px] text-on-tertiary font-bold" type="button">T</button>
+<button class="w-8 h-8 rounded-sm bg-tertiary flex items-center justify-center text-[10px] text-on-tertiary font-bold" type="button">W</button>
+<button class="w-8 h-8 rounded-sm bg-tertiary flex items-center justify-center text-[10px] text-on-tertiary font-bold" type="button">T</button>
+<button class="w-8 h-8 rounded-sm bg-tertiary flex items-center justify-center text-[10px] text-on-tertiary font-bold" type="button">F</button>
+<button class="w-8 h-8 rounded-sm bg-surface-variant flex items-center justify-center text-[10px] text-on-surface-variant font-bold" type="button">S</button>
+<button class="w-8 h-8 rounded-sm bg-surface-variant flex items-center justify-center text-[10px] text-on-surface-variant font-bold" type="button">S</button>
+</div>
+</div>
+</div>
+<!-- Form Actions -->
+<div class="pt-6 flex flex-col md:flex-row gap-4 items-center border-t border-outline-variant/15">
+<button class="w-full md:w-auto px-10 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary font-semibold rounded-lg hover:opacity-90 transition-all active:scale-95 shadow-sm" type="submit">
+                        Add Habit
+                    </button>
+<button class="w-full md:w-auto px-10 py-3 bg-transparent text-primary font-semibold rounded-lg hover:bg-surface-container-high transition-all active:scale-95" type="button">
+                        Cancel
+                    </button>
+</div>
+</form>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-[#f2f4f6] dark:bg-slate-950 border-t border-[#c3c6d7]/15">
+<div class="flex flex-col md:flex-row justify-between items-center px-10 py-8 max-w-[1440px] mx-auto">
+<div class="mb-4 md:mb-0">
+<p class="font-inter text-[0.75rem] uppercase tracking-[0.05em] text-[#434655] dark:text-slate-500">© 2024 The Disciplined Canvas. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-inter text-[0.75rem] uppercase tracking-[0.05em] text-[#434655] dark:text-slate-500 hover:text-[#004ac6] dark:hover:text-[#2563eb] underline underline-offset-4 transition-all duration-300" href="#">Privacy Policy</a>
+<a class="font-inter text-[0.75rem] uppercase tracking-[0.05em] text-[#434655] dark:text-slate-500 hover:text-[#004ac6] dark:hover:text-[#2563eb] underline underline-offset-4 transition-all duration-300" href="#">Terms of Service</a>
+<a class="font-inter text-[0.75rem] uppercase tracking-[0.05em] text-[#434655] dark:text-slate-500 hover:text-[#004ac6] dark:hover:text-[#2563eb] underline underline-offset-4 transition-all duration-300" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</body></html>

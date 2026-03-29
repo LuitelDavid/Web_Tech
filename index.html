@@ -1,134 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Web Tech Lab</title>
+    <title>Web Tech Lab</title>
 
-<style>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-*{
-    box-sizing:border-box;
-}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
 
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    min-height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
 
-    background: linear-gradient(135deg,#4facfe,#00f2fe);
-}
+        /* main card */
 
-/* main card */
+        .container {
 
-.container{
+            background: white;
+            padding: 40px 50px;
 
-    background:white;
-    padding:40px 50px;
+            border-radius: 12px;
 
-    border-radius:12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+            text-align: center;
 
-    text-align:center;
+            width: 700px;
 
-    width:700px;
+        }
 
-}
+        /* title */
 
-/* title */
+        h1 {
 
-h1{
+            margin-bottom: 35px;
 
-    margin-bottom:35px;
+            color: #2c3e50;
 
-    color:#2c3e50;
+            letter-spacing: 1px;
 
-    letter-spacing:1px;
+        }
 
-}
+        /* grid */
 
-/* grid */
+        .buttons {
 
-.buttons{
+            display: grid;
 
-    display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 
-    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+            gap: 18px;
 
-    gap:18px;
+        }
 
-}
+        /* remove link style */
 
-/* remove link style */
+        .buttons a {
+            text-decoration: none;
+        }
 
-.buttons a{
-    text-decoration:none;
-}
+        /* buttons */
 
-/* buttons */
+        .buttons button {
 
-.buttons button{
+            width: 100%;
 
-    width:100%;
+            padding: 14px;
 
-    padding:14px;
+            font-size: 16px;
 
-    font-size:16px;
+            border: none;
 
-    border:none;
+            border-radius: 8px;
 
-    border-radius:8px;
+            cursor: pointer;
 
-    cursor:pointer;
+            color: white;
 
-    color:white;
+            background: linear-gradient(135deg, #ff7a18, #ffb347);
 
-    background:linear-gradient(135deg,#ff7a18,#ffb347);
+            transition: all 0.25s ease;
 
-    transition:all 0.25s ease;
+        }
 
-}
+        /* hover */
 
-/* hover */
+        .buttons button:hover {
 
-.buttons button:hover{
+            transform: translateY(-4px);
 
-    transform:translateY(-4px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 
-    box-shadow:0 8px 18px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #ff512f, #dd2476);
 
-    background:linear-gradient(135deg,#ff512f,#dd2476);
-
-}
-
-</style>
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-<h1>Web Technology Lab Experiments</h1>
+        <h1>Web Technology Lab Experiments</h1>
 
-<div class="buttons">
+        <div class="buttons">
 
-<a href="lab_exp1/index.html"><button>Experiment 1</button></a>
-<a href="lab_exp2/index.html"><button>Experiment 2</button></a>
-<a href="lab_exp3/index.html"><button>Experiment 3</button></a>
-<a href="lab_exp4/index.html"><button>Experiment 4</button></a>
-<a href="lab_exp5/index.html"><button>Experiment 5</button></a>
-<a href="lab_exp6/index.html"><button>Experiment 6</button></a>
-<a href="lab_exp7/index.html"><button>Experiment 7</button></a>
+            <a href="lab_exp1/index.html"><button>Experiment 1</button></a>
+            <a href="lab_exp2/index.html"><button>Experiment 2</button></a>
+            <a href="lab_exp3/index.html"><button>Experiment 3</button></a>
+            <a href="lab_exp4/index.html"><button>Experiment 4</button></a>
+            <a href="lab_exp5/index.html"><button>Experiment 5</button></a>
+            <a href="lab_exp6/index.html"><button>Experiment 6</button></a>
+            <a href="lab_exp7/index.html"><button>Experiment 7</button></a>
+            <a href="lab_exp8/index.php"><button>Experiment 8</button></a>
+            <a href="final_project/index.php"><button>Final Project</button></a>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </body>
+
 </html>

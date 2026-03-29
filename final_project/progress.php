@@ -176,13 +176,21 @@ $user_name = $_SESSION['user_name'];
                 if (progressData.success) {
                     renderBreakdown(progressData.data);
                     calculateSummary(progressData.data);
+                } else if (progressData.error) {
+                    console.error('Progress Data Error:', progressData.error);
                 }
                 
                 if (Array.isArray(chartData)) {
                     renderChart(chartData);
+                } else if (chartData.error) {
+                    console.error('Chart Data Error:', chartData.error);
+                    document.getElementById('chartContainer').innerHTML = `<div class="w-full text-center text-error">Error: ${chartData.error}</div>`;
+                } else {
+                    document.getElementById('chartContainer').innerHTML = `<div class="w-full text-center text-on-surface-variant">No consistency data found.</div>`;
                 }
             } catch (err) {
                 console.error('Error fetching progress data:', err);
+                document.getElementById('chartContainer').innerHTML = `<div class="w-full text-center text-error">Failed to load chart data.</div>`;
             }
         }
 
@@ -202,19 +210,27 @@ $user_name = $_SESSION['user_name'];
         function renderChart(data) {
             const container = document.getElementById('chartContainer');
             container.innerHTML = '';
+
+            if (!data || data.length === 0) {
+                container.innerHTML = '<div class="w-full text-center text-on-surface-variant">No data to display.</div>';
+                return;
+            }
             
             // Get max completions for scaling
-            const maxCompletions = Math.max(...data.map(d => d.completed), 1);
+            const maxCompletions = Math.max(...data.map(d => d.completed), 0);
+            const scaleMax = maxCompletions > 0 ? maxCompletions : 1;
 
             data.forEach(day => {
                 const dateObj = new DateTime(day.date);
                 const dayName = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(dateObj);
-                const height = (day.completed / maxCompletions) * 100;
+                const height = (day.completed / scaleMax) * 100;
                 
                 const bar = document.createElement('div');
-                bar.className = 'flex-1 flex flex-col items-center gap-4 group';
+                bar.className = 'flex-1 flex flex-col items-center gap-4 group h-full justify-end';
                 bar.innerHTML = `
-                    <div class="w-full ${day.completed > 0 ? 'bg-primary' : 'bg-surface-container-highest'} rounded-t-sm transition-all duration-300 group-hover:opacity-80" style="height: ${height}%"></div>
+                    <div class="w-full ${day.completed > 0 ? 'bg-primary' : 'bg-surface-container-highest'} rounded-t-sm transition-all duration-300 group-hover:opacity-80" 
+                         style="height: ${height}%; min-height: ${day.completed > 0 ? '4px' : '0'}"
+                         title="${day.completed} completions on ${day.date}"></div>
                     <span class="font-inter text-[0.75rem] uppercase tracking-wider text-secondary">${dayName}</span>
                 `;
                 container.appendChild(bar);

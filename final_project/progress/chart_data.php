@@ -28,11 +28,11 @@ try {
     // Response format: [{"date": "YYYY-MM-DD", "completed": 1}, ...]
     
     $stmt = $pdo->prepare("
-        SELECT completed_date, COUNT(DISTINCT habit_id) as total_completed
+        SELECT DATE(completed_date) as c_date, COUNT(DISTINCT habit_id) as total_completed
         FROM habit_logs
         INNER JOIN habits ON habit_logs.habit_id = habits.id
         WHERE habits.user_id = ? AND habit_logs.completed_date >= ?
-        GROUP BY completed_date
+        GROUP BY c_date
     ");
     $start_date = $dates[0];
     $stmt->execute([$user_id, $start_date]);
@@ -46,7 +46,7 @@ try {
         ];
     }
 
-    echo json_encode($chart_data);
+    echo json_encode(array_values($chart_data));
 
 } catch (\PDOException $e) {
     echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);

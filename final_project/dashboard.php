@@ -224,14 +224,16 @@ $user_name = $_SESSION['user_name'];
                 return;
             }
 
-            list.innerHTML = todos.map(todo => `
+            list.innerHTML = todos.map(todo => {
+                const completed = Boolean(Number(todo.is_completed));
+                return `
                 <div class="group flex items-center justify-between gap-2 py-1">
                     <div class="flex items-center gap-3 overflow-hidden">
                         <button onclick="toggleTodo(${todo.id})" 
-                                class="w-5 h-5 rounded-md border ${todo.is_completed ? 'bg-primary border-primary text-on-primary' : 'border-outline-variant hover:border-primary'} flex items-center justify-center transition-all shrink-0">
-                            ${todo.is_completed ? '<span class="material-symbols-outlined text-[0.8rem] font-bold">check</span>' : ''}
+                                class="w-5 h-5 rounded-md border ${completed ? 'bg-primary border-primary text-on-primary' : 'border-outline-variant hover:border-primary'} flex items-center justify-center transition-all shrink-0">
+                            ${completed ? '<span class="material-symbols-outlined text-[0.8rem] font-bold">check</span>' : ''}
                         </button>
-                        <span class="text-sm truncate ${todo.is_completed ? 'line-through text-on-surface-variant/50' : 'text-on-surface'}">
+                        <span class="text-sm truncate ${completed ? 'line-through text-on-surface-variant/50' : 'text-on-surface'}">
                             ${todo.task}
                         </span>
                     </div>
@@ -239,7 +241,7 @@ $user_name = $_SESSION['user_name'];
                         <span class="material-symbols-outlined text-[1rem]">close</span>
                     </button>
                 </div>
-            `).join('');
+            `;}).join('');
         }
 
         function handleTodoKey(e) {
@@ -310,8 +312,9 @@ $user_name = $_SESSION['user_name'];
 
             list.innerHTML = '';
             habits.forEach(habit => {
+                console.log(`Habit: ${habit.title}, completed_today: ${habit.completed_today} (Type: ${typeof habit.completed_today})`);
                 const habitStat = stats.find(s => s.id == habit.id) || { streak: 0 };
-                const isCompleted = habit.completed_today == 1;
+                const isCompleted = Number(habit.completed_today) === 1;
                 
                 const card = document.createElement('div');
                 card.className = isCompleted 

@@ -26,11 +26,9 @@ A sleek, professional web-based productivity application designed to help users 
 
 ## Tech Stack
 - **Frontend**:
-    - **HTML5**: Semantic structure for accessibility and SEO.
-    - **Tailwind CSS**: Utility-first styling for a premium, responsive UI.
-    - **JavaScript (Vanilla)**: Asynchronous logic using the Fetch API for a smooth, no-reload experience.
-    - **Google Fonts**: "Inter" for modern, readable typography.
-    - **Material Symbols**: For intuitive visual iconography.
+    - **HTML5**: Semantic structure for accessibility.
+    - **CSS**: Styling for a responsive UI.
+    - **JavaScript**: Asynchronous logic using the Fetch API for a smooth, no-reload experience.
 - **Backend**:
     - **PHP**: Server-side logic for authentication and data processing.
 - **Database**:
@@ -78,7 +76,6 @@ To run this project locally, ensure you have a local server environment like **X
 - **Cloud Sync**: Real-time database synchronization across multiple devices.
 - **Notifications/Reminders**: Push notifications or email alerts to remind users of pending habits.
 - **Advanced Analytics**: Detailed charts and graphs showing long-term trends and monthly performance reports.
-- **Custom Themes**: Ability to switch between Dark, Light, and custom aesthetic modes.
 
 ## Conclusion
 **The Disciplined Canvas** is more than just a tool; it is a digital companion for anyone committed to self-improvement. By combining task management with habit tracking and visual data, it transforms the abstract concept of "consistency" into a tangible, measurable, and rewarding daily experience.
